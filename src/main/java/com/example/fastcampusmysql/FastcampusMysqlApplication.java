@@ -10,4 +10,6 @@ public class FastcampusMysqlApplication {
         SpringApplication.run(FastcampusMysqlApplication.class, args);
     }
 
+    //github test
+
 }
