@@ -2,20 +2,32 @@ package com.example.fastcampusmysql.domain.member.entity;
 
 import lombok.Builder;
 import lombok.Getter;
-import nonapi.io.github.classgraph.json.Id;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Getter
+@Entity
+@Table(name = "member")
+@NoArgsConstructor
 public class Member {
-    private final Long id;
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nickname")
     private String nickName;
+    @Column(name = "email")
     private String email;
+    @Column(name = "birthday")
     private LocalDate birthDay;
-    private final LocalDateTime createdAt;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     final private static Long NAME_MAX_LENGTH = 10L;
 

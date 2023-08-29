@@ -31,7 +31,7 @@ public class MemberRepository {
     private Member insert(Member member) {
         // NamedParameterJdbcTemplate 내에 있는 keyHolder를 이용하여 구현도 가능하나, 다른방법으로 구현함
         SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(namedJdbcTemplate.getJdbcTemplate())
-                .withTableName("Member")
+                .withTableName("member")
                 .usingGeneratedKeyColumns("id");
 
         SqlParameterSource params = new BeanPropertySqlParameterSource(member);
