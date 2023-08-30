@@ -1,5 +1,6 @@
 package com.example.fastcampusmysql.domain.member.service;
 
+import com.example.fastcampusmysql.domain.member.dto.MemberDto;
 import com.example.fastcampusmysql.domain.member.dto.MemberRegisterCommand;
 import com.example.fastcampusmysql.domain.member.entity.Member;
 import com.example.fastcampusmysql.domain.member.repo.MemberRepository;
@@ -10,8 +11,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MemberWriteService {
     private final MemberRepository memberRepository;
+    private final MapperService mapperService;
 
-    public Member create(MemberRegisterCommand command){
+
+    public MemberDto register(MemberRegisterCommand command){
 
         /**
          * Goal : 회원정보를 등록한다.
@@ -26,8 +29,9 @@ public class MemberWriteService {
                 .email(command.getEmail())
                 .birthDay(command.getBirthDay())
                 .build();
-
-        return memberRepository.save(member);
+        Member saveMember = memberRepository.save(member);
+        return mapperService.toMemberDto(saveMember);
     }
+
 
 }
