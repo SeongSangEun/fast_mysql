@@ -16,7 +16,7 @@ public class MemberDto {
     public MemberDto(Member member) {
         this.id = member.getId();
         this.email = member.getEmail();
-        this.nickname = member.getNickName();
+        this.nickname = member.getNickname();
         this.birthday = member.getBirthDay();
     }
 }

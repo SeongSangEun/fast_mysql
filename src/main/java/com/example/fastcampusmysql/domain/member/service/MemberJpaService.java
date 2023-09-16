@@ -15,7 +15,7 @@ public class MemberJpaService {
 
     public MemberDto registerMember(MemberRegisterCommand command) {
         Member member = Member.builder()
-                .nickName(command.getNickName())
+                .nickname(command.getNickName())
                 .email(command.getEmail())
                 .birthDay(command.getBirthDay())
                 .build();
