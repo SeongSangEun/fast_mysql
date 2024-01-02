@@ -32,7 +32,7 @@ public class MemberWriteService {
                 .birthDay(command.getBirthDay())
                 .build();
         Member saveMember = memberRepository.save(member);
-        memberNicknameHistoryRepository.save(new MemberNicknameHistory(member));
+        memberNicknameHistoryRepository.save(new MemberNicknameHistory(saveMember));
 
         return mapperService.toMemberDto(saveMember);
     }

@@ -19,12 +19,8 @@ public class MemberNicknameHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "member_id")
     private Long memberId;
-    @Column(name = "nickname")
     private String nickname;
-
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Builder
